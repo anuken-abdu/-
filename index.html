@@ -35,13 +35,13 @@ function gtag_report_conversion(url) {
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
---orange:#E8750A;
---orange-light:#F59E2F;
---dark:#141414;
---dark2:#1C1C1C;
---dark3:#252525;
---gray:#888;
---light:#F0EDEA;
+--accent:#FFFFFF;
+--accent-light:#E0E0E0;
+--dark:#0D0D0D;
+--dark2:#151515;
+--dark3:#1F1F1F;
+--gray:#777;
+--light:#D4D4D4;
 --white:#FFFFFF;
 --font-head:'Oswald',sans-serif;
 --font-body:'Roboto Condensed',sans-serif;
@@ -59,7 +59,7 @@ position:fixed;top:0;left:0;right:0;z-index:1000;
 background:rgba(20,20,20,.92);
 backdrop-filter:blur(10px);
 -webkit-backdrop-filter:blur(10px);
-border-bottom:1px solid rgba(232,117,10,.15);
+border-bottom:1px solid rgba(255,255,255,.15);
 padding:0 20px;
 height:56px;
 display:flex;align-items:center;justify-content:space-between;
@@ -67,17 +67,17 @@ display:flex;align-items:center;justify-content:space-between;
 .header-left{display:flex;align-items:center;gap:12px}
 .site-name{
 font-family:var(--font-head);font-size:1.1rem;font-weight:700;
-color:var(--orange);text-transform:uppercase;letter-spacing:2px;
+color:var(--accent);text-transform:uppercase;letter-spacing:2px;
 }
 .lang-switch{
-display:flex;border:1px solid var(--orange);border-radius:var(--radius);overflow:hidden;
+display:flex;border:1px solid var(--accent);border-radius:var(--radius);overflow:hidden;
 }
 .lang-btn{
 padding:6px 14px;font-family:var(--font-head);font-size:.8rem;font-weight:600;
-background:transparent;color:var(--orange);border:none;cursor:pointer;
+background:transparent;color:var(--accent);border:none;cursor:pointer;
 transition:all .2s;letter-spacing:1px;
 }
-.lang-btn.active{background:var(--orange);color:var(--dark)}
+.lang-btn.active{background:var(--accent);color:var(--dark)}
 
 /* Hamburger */
 .header-right{display:flex;align-items:center;gap:8px}
@@ -86,8 +86,8 @@ width:44px;height:44px;display:flex;align-items:center;justify-content:center;
 background:none;border:none;cursor:pointer;border-radius:50%;
 transition:background .2s;
 }
-.theme-toggle:hover{background:rgba(232,117,10,.12)}
-.theme-toggle svg{width:22px;height:22px;stroke:var(--orange);transition:all .3s}
+.theme-toggle:hover{background:rgba(255,255,255,.12)}
+.theme-toggle svg{width:22px;height:22px;stroke:var(--accent);transition:all .3s}
 .theme-toggle .icon-sun{display:none}
 .theme-toggle .icon-moon{display:block}
 body.light .theme-toggle .icon-sun{display:block}
@@ -95,6 +95,8 @@ body.light .theme-toggle .icon-moon{display:none}
 
 /* ===== LIGHT THEME ===== */
 body.light{
+--accent:#111111;
+--accent-light:#333333;
 --dark:#F5F5F5;
 --dark2:#EAEAEA;
 --dark3:#DCDCDC;
@@ -104,24 +106,23 @@ body.light{
 }
 body.light .header{
 background:rgba(245,245,245,.95);
-border-bottom-color:rgba(232,117,10,.2);
+border-bottom-color:rgba(0,0,0,.1);
 }
-body.light .hamburger span{background:var(--orange)}
+body.light .hamburger span{background:var(--accent)}
 body.light .hero-bg::after{
-background:linear-gradient(180deg,rgba(245,245,245,.75) 0%,rgba(245,245,245,.55) 50%,rgba(245,245,245,.95) 100%);
+background:linear-gradient(180deg,rgba(245,245,245,.8) 0%,rgba(245,245,245,.6) 50%,rgba(245,245,245,.95) 100%);
 }
 body.light .hero h1{color:var(--white)}
-body.light .hero h1 span,body.light .hero h1 .orange-text{color:var(--orange)}
-body.light .side-menu{background:var(--dark2);border-left-color:var(--orange)}
-body.light .side-menu-header{color:var(--orange)}
+body.light .side-menu{background:var(--dark2);border-left:1px solid rgba(0,0,0,.15)}
+body.light .side-menu-header{color:var(--accent)}
 body.light .side-menu nav a{color:var(--light)}
-body.light .side-menu nav a:hover{color:var(--orange);background:rgba(232,117,10,.08)}
+body.light .side-menu nav a:hover{color:var(--accent);background:rgba(0,0,0,.05)}
 body.light .fleet-card{background:var(--dark2);border-color:var(--dark3)}
 body.light .fleet-card-body{background:var(--dark2)}
 body.light .fleet-card-img{background:var(--dark3)}
 body.light .service-card{background:var(--dark2);border-color:var(--dark3)}
 body.light .step-item{background:var(--dark2);border-color:var(--dark3)}
-body.light .step-num{background:var(--dark);border-color:var(--orange);color:var(--orange)}
+body.light .step-num{background:var(--dark);border-color:var(--accent);color:var(--accent)}
 body.light .adv-card{background:var(--dark2)}
 body.light .coverage-tag{background:var(--dark2);border-color:var(--dark3);color:var(--light)}
 body.light .scroll-top{background:var(--dark2);border-color:var(--dark3)}
@@ -129,6 +130,15 @@ body.light .bottom-bar{background:rgba(245,245,245,.95)}
 body.light .bottom-bar a:last-child{color:var(--light)}
 body.light .overlay{background:rgba(0,0,0,.3)}
 body.light .footer{background:var(--dark2);border-top-color:var(--dark3)}
+body.light .divider{background:rgba(0,0,0,.2)}
+body.light .adv-card{background:var(--dark2);border-left-color:rgba(0,0,0,.3)}
+body.light .hero-badge{background:rgba(0,0,0,.06);border-color:rgba(0,0,0,.2);color:var(--accent)}
+body.light .service-icon{background:rgba(0,0,0,.05);border-color:rgba(0,0,0,.15)}
+body.light #cta{background:var(--accent)}
+body.light #cta h2{color:var(--white)}
+body.light #cta p{color:rgba(255,255,255,.6)}
+body.light .cta-btn--dark{background:var(--white);color:var(--dark)}
+body.light .cta-btn--outline{border-color:var(--white);color:var(--white)}
 
 .hamburger{
 width:44px;height:44px;display:flex;flex-direction:column;
@@ -136,7 +146,7 @@ justify-content:center;align-items:center;gap:5px;
 cursor:pointer;background:none;border:none;z-index:1100;
 }
 .hamburger span{
-display:block;width:24px;height:2px;background:var(--orange);
+display:block;width:24px;height:2px;background:var(--accent);
 transition:all .3s ease;border-radius:2px;
 }
 .hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
@@ -155,13 +165,13 @@ position:fixed;top:0;right:-320px;width:300px;max-width:85vw;
 height:100%;background:var(--dark2);z-index:1060;
 transition:right .35s cubic-bezier(.4,0,.2,1);
 display:flex;flex-direction:column;
-border-left:2px solid var(--orange);
+border-left:1px solid rgba(255,255,255,.15);
 }
 .side-menu.open{right:0}
 .side-menu-header{
 padding:20px 24px;border-bottom:1px solid var(--dark3);
 font-family:var(--font-head);font-size:1.1rem;
-color:var(--orange);text-transform:uppercase;letter-spacing:2px;
+color:var(--accent);text-transform:uppercase;letter-spacing:2px;
 }
 .side-menu nav{flex:1;padding:16px 0}
 .side-menu nav a{
@@ -171,15 +181,15 @@ font-size:1rem;letter-spacing:1px;color:var(--light);
 transition:all .2s;border-left:3px solid transparent;
 }
 .side-menu nav a:hover,.side-menu nav a:active{
-background:rgba(232,117,10,.08);color:var(--orange);
-border-left-color:var(--orange);
+background:rgba(255,255,255,.08);color:var(--accent);
+border-left-color:var(--accent);
 }
 .side-menu nav a svg{width:20px;height:20px;flex-shrink:0;stroke:currentColor}
 .side-menu-footer{
 padding:20px 24px;border-top:1px solid var(--dark3);
 font-size:.8rem;color:var(--gray);text-align:center;
 }
-.side-menu-footer a{color:var(--orange);font-weight:600;transition:opacity .2s}
+.side-menu-footer a{color:var(--accent);font-weight:600;transition:opacity .2s}
 .side-menu-footer a:hover{opacity:.7}
 
 /* ===== HERO ===== */
@@ -194,14 +204,14 @@ background:url('images/fon.jpg') center/cover no-repeat;
 }
 .hero-bg::after{
 content:'';position:absolute;top:0;left:0;right:0;bottom:0;
-background:linear-gradient(180deg,rgba(20,20,20,.75) 0%,rgba(20,20,20,.6) 50%,rgba(20,20,20,.95) 100%);
+background:linear-gradient(180deg,rgba(13,13,13,.8) 0%,rgba(13,13,13,.65) 50%,rgba(13,13,13,.97) 100%);
 }
 .hero-content{position:relative;z-index:2;max-width:800px}
 .hero-badge{
 display:inline-block;padding:6px 20px;
-background:rgba(232,117,10,.15);border:1px solid var(--orange);
+background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.3);
 border-radius:50px;font-family:var(--font-head);font-size:.75rem;
-font-weight:600;color:var(--orange);letter-spacing:3px;
+font-weight:600;color:var(--accent);letter-spacing:3px;
 text-transform:uppercase;margin-bottom:20px;
 }
 .hero h1{
@@ -209,20 +219,20 @@ font-family:var(--font-head);font-size:clamp(2.2rem,7vw,4.5rem);
 font-weight:700;text-transform:uppercase;line-height:1.1;
 margin-bottom:16px;color:var(--white);
 }
-.hero h1 span{color:var(--orange)}
+.hero h1 span{color:var(--accent)}
 .hero-sub{
 font-size:clamp(1rem,2.5vw,1.3rem);color:var(--gray);
 max-width:600px;margin:0 auto 32px;font-weight:300;
 }
 .hero-cta{
 display:inline-flex;align-items:center;gap:10px;
-padding:16px 40px;background:var(--orange);color:var(--dark);
+padding:16px 40px;background:var(--accent);color:var(--dark);
 font-family:var(--font-head);font-size:1.1rem;font-weight:700;
 text-transform:uppercase;letter-spacing:2px;
 border-radius:var(--radius);border:none;cursor:pointer;
 transition:all .25s;
 }
-.hero-cta:hover{background:var(--orange-light);transform:translateY(-2px);box-shadow:0 8px 30px rgba(232,117,10,.3)}
+.hero-cta:hover{background:var(--accent-light);transform:translateY(-2px);box-shadow:0 8px 30px rgba(255,255,255,.15)}
 .hero-cta svg{width:22px;height:22px}
 
 .hero-stats{
@@ -232,7 +242,7 @@ flex-wrap:wrap;
 .hero-stat{text-align:center}
 .hero-stat-num{
 font-family:var(--font-head);font-size:clamp(1.8rem,4vw,2.8rem);
-font-weight:700;color:var(--orange);line-height:1;
+font-weight:700;color:var(--accent);line-height:1;
 }
 .hero-stat-label{font-size:.8rem;color:var(--gray);margin-top:4px;text-transform:uppercase;letter-spacing:1px}
 
@@ -244,13 +254,13 @@ font-family:var(--font-head);font-size:clamp(1.5rem,4vw,2.8rem);
 font-weight:700;text-transform:uppercase;text-align:center;
 margin-bottom:8px;color:var(--white);
 }
-.section-title span{color:var(--orange)}
+.section-title span{color:var(--accent)}
 .section-sub{
 text-align:center;color:var(--gray);max-width:600px;
 margin:0 auto 28px;font-size:.9rem;
 }
 .divider{
-width:50px;height:3px;background:var(--orange);
+width:50px;height:2px;background:rgba(255,255,255,.3);
 margin:10px auto 14px;border-radius:2px;
 }
 
@@ -265,7 +275,7 @@ background:var(--dark2);border-radius:var(--radius);
 overflow:hidden;border:1px solid var(--dark3);
 transition:all .3s;
 }
-.fleet-card:hover{border-color:var(--orange);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.4)}
+.fleet-card:hover{border-color:rgba(255,255,255,.35);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.4)}
 .fleet-card-img{
 position:relative;height:180px;overflow:hidden;background:var(--dark3);
 }
@@ -276,7 +286,7 @@ transition:transform .4s;
 .fleet-card:hover .fleet-card-img img{transform:scale(1.05)}
 .fleet-card-badge{
 position:absolute;top:8px;left:8px;
-padding:3px 10px;background:var(--orange);color:var(--dark);
+padding:3px 10px;background:var(--accent);color:var(--dark);
 font-family:var(--font-head);font-size:.7rem;font-weight:700;
 border-radius:var(--radius);letter-spacing:1px;text-transform:uppercase;
 }
@@ -291,7 +301,7 @@ letter-spacing:1px;
 display:flex;align-items:center;gap:6px;
 font-size:.8rem;color:var(--light);
 }
-.fleet-spec svg{width:15px;height:15px;stroke:var(--orange);flex-shrink:0}
+.fleet-spec svg{width:15px;height:15px;stroke:var(--accent);flex-shrink:0}
 
 /* ===== SERVICES / Услуги ===== */
 #services{background:var(--dark2)}
@@ -304,14 +314,14 @@ padding:16px 14px;background:var(--dark);
 border-radius:var(--radius);border:1px solid var(--dark3);
 transition:all .3s;text-align:center;
 }
-.service-card:hover{border-color:var(--orange);transform:translateY(-2px)}
+.service-card:hover{border-color:rgba(255,255,255,.4);transform:translateY(-2px)}
 .service-icon{
 width:42px;height:42px;border-radius:50%;
-background:rgba(232,117,10,.1);border:1px solid rgba(232,117,10,.3);
+background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.3);
 display:flex;align-items:center;justify-content:center;
 margin:0 auto 10px;
 }
-.service-icon svg{width:20px;height:20px;stroke:var(--orange)}
+.service-icon svg{width:20px;height:20px;stroke:var(--accent)}
 .service-card h3{
 font-family:var(--font-head);font-size:.85rem;font-weight:600;
 color:var(--white);margin-bottom:4px;text-transform:uppercase;
@@ -332,10 +342,10 @@ border:1px solid var(--dark3);
 }
 .step-num{
 width:40px;height:40px;border-radius:50%;flex-shrink:0;
-background:var(--dark);border:2px solid var(--orange);
+background:var(--dark);border:1px solid rgba(255,255,255,.35);
 display:flex;align-items:center;justify-content:center;
 font-family:var(--font-head);font-size:1.1rem;font-weight:700;
-color:var(--orange);
+color:var(--accent);
 }
 .step-content h3{
 font-family:var(--font-head);font-size:.85rem;font-weight:600;
@@ -351,7 +361,7 @@ gap:12px;
 }
 .adv-card{
 padding:14px 14px;background:var(--dark);
-border-radius:var(--radius);border-left:3px solid var(--orange);
+border-radius:var(--radius);border-left:3px solid rgba(255,255,255,.4);
 transition:all .3s;
 }
 .adv-card:hover{transform:translateX(4px)}
@@ -374,11 +384,11 @@ font-family:var(--font-head);font-size:.8rem;font-weight:500;
 color:var(--light);letter-spacing:.5px;
 transition:all .2s;
 }
-.coverage-tag:hover{border-color:var(--orange);color:var(--orange)}
+.coverage-tag:hover{border-color:var(--accent);color:var(--accent)}
 
 /* ===== CTA Section ===== */
 #cta{
-background:linear-gradient(135deg,var(--orange) 0%,#c45e00 100%);
+background:var(--white);
 text-align:center;padding:40px 20px;
 }
 #cta h2{
@@ -386,7 +396,7 @@ font-family:var(--font-head);font-size:clamp(1.4rem,4vw,2.4rem);
 font-weight:700;color:var(--dark);text-transform:uppercase;
 margin-bottom:8px;
 }
-#cta p{color:rgba(20,20,20,.7);margin-bottom:20px;font-size:.95rem}
+#cta p{color:rgba(0,0,0,.5);margin-bottom:20px;font-size:.95rem}
 .cta-buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
 .cta-btn{
 display:inline-flex;align-items:center;gap:8px;
@@ -395,10 +405,10 @@ font-family:var(--font-head);font-size:1rem;font-weight:700;
 text-transform:uppercase;letter-spacing:1px;cursor:pointer;
 transition:all .25s;border:2px solid var(--dark);
 }
-.cta-btn--dark{background:var(--dark);color:var(--orange)}
+.cta-btn--dark{background:var(--dark);color:var(--white)}
 .cta-btn--dark:hover{background:var(--dark2)}
-.cta-btn--outline{background:transparent;color:var(--dark)}
-.cta-btn--outline:hover{background:rgba(0,0,0,.1)}
+.cta-btn--outline{background:transparent;color:var(--dark);border-color:var(--dark)}
+.cta-btn--outline:hover{background:rgba(0,0,0,.06)}
 .cta-btn svg{width:20px;height:20px}
 
 /* ===== FOOTER ===== */
@@ -418,15 +428,15 @@ cursor:pointer;opacity:0;pointer-events:none;
 transition:all .3s;
 }
 .scroll-top.visible{opacity:1;pointer-events:all}
-.scroll-top:hover{border-color:var(--orange);background:var(--dark3)}
-.scroll-top svg{width:22px;height:22px;stroke:var(--orange)}
+.scroll-top:hover{border-color:var(--accent);background:var(--dark3)}
+.scroll-top svg{width:22px;height:22px;stroke:var(--accent)}
 
 /* ===== BOTTOM CONTACT BAR ===== */
 .bottom-bar{
 position:fixed;bottom:0;left:0;right:0;z-index:950;
 background:rgba(20,20,20,.95);backdrop-filter:blur(8px);
 -webkit-backdrop-filter:blur(8px);
-border-top:2px solid var(--orange);
+border-top:1px solid rgba(255,255,255,.2);
 padding:0;display:flex;height:56px;
 }
 .bottom-bar a{
@@ -436,9 +446,9 @@ text-transform:uppercase;letter-spacing:1px;
 transition:background .2s;color:var(--light);
 }
 .bottom-bar a:first-child{
-background:var(--orange);color:var(--dark);
+background:var(--accent);color:var(--dark);
 }
-.bottom-bar a:first-child:hover{background:var(--orange-light)}
+.bottom-bar a:first-child:hover{background:var(--accent-light)}
 .bottom-bar a:last-child:hover{background:var(--dark3)}
 .bottom-bar svg{width:22px;height:22px}
 
@@ -556,7 +566,7 @@ background:var(--orange);color:var(--dark);
     <div class="hero-badge" data-ru="г. Алматы и область" data-kz="Алматы қ. және облысы">г. Алматы и область</div>
     <h1>
       <span data-ru="Услуги" data-kz="Қызметтер">Услуги</span><br>
-      <span class="orange-text" style="color:var(--orange)" data-ru="манипулятора" data-kz="манипулятор">манипулятора</span>
+      <span data-ru="манипулятора" data-kz="манипулятор">манипулятора</span>
     </h1>
     <p class="hero-sub" data-ru="Аренда манипуляторов от 3 до 20 тонн. Быстрая подача, грузоперевозки любой сложности по выгодным ценам." data-kz="3-тен 20 тоннаға дейін манипулятор жалдау. Жылдам жеткізу, кез келген күрделіліктегі жүктерді тасымалдау.">Аренда манипуляторов от 3 до 20 тонн. Быстрая подача, грузоперевозки любой сложности по выгодным ценам.</p>
     <a href="https://wa.me/77072122040" target="_blank" rel="noopener" class="hero-cta" onclick="return gtag_report_conversion('https://wa.me/77072122040')">
@@ -583,7 +593,7 @@ background:var(--orange);color:var(--dark);
 <!-- FLEET / Техника -->
 <section id="fleet">
   <div class="container">
-    <h2 class="section-title fade-up"><span data-ru="Наша" data-kz="Біздің">Наша</span> <span style="color:var(--orange)" data-ru="техника" data-kz="техника">техника</span></h2>
+    <h2 class="section-title fade-up"><span data-ru="Наша" data-kz="Біздің">Наша</span> <span data-ru="техника" data-kz="техника">техника</span></h2>
     <div class="divider"></div>
     <p class="section-sub fade-up" data-ru="6 видов манипуляторов грузоподъёмностью от 3 до 20 тонн для задач любой сложности" data-kz="Кез келген күрделіліктегі тапсырмалар үшін 3-тен 20 тоннаға дейін жүк көтергіштігі бар 6 түрлі манипулятор">6 видов манипуляторов грузоподъёмностью от 3 до 20 тонн для задач любой сложности</p>
     <div class="fleet-grid">
@@ -691,7 +701,7 @@ background:var(--orange);color:var(--dark);
 <!-- SERVICES / Услуги -->
 <section id="services">
   <div class="container">
-    <h2 class="section-title fade-up"><span data-ru="Наши" data-kz="Біздің">Наши</span> <span style="color:var(--orange)" data-ru="услуги" data-kz="қызметтер">услуги</span></h2>
+    <h2 class="section-title fade-up"><span data-ru="Наши" data-kz="Біздің">Наши</span> <span data-ru="услуги" data-kz="қызметтер">услуги</span></h2>
     <div class="divider"></div>
     <p class="section-sub fade-up" data-ru="Полный спектр услуг манипулятора для строительства, перевозки и монтажа" data-kz="Құрылыс, тасымалдау және монтаждау үшін манипулятор қызметтерінің толық спектрі">Полный спектр услуг манипулятора для строительства, перевозки и монтажа</p>
     <div class="services-grid">
@@ -722,7 +732,7 @@ background:var(--orange);color:var(--dark);
 <!-- STEPS / Этапы работы -->
 <section id="steps">
   <div class="container">
-    <h2 class="section-title fade-up"><span data-ru="Этапы" data-kz="Жұмыс">Этапы</span> <span style="color:var(--orange)" data-ru="работы" data-kz="кезеңдері">работы</span></h2>
+    <h2 class="section-title fade-up"><span data-ru="Этапы" data-kz="Жұмыс">Этапы</span> <span data-ru="работы" data-kz="кезеңдері">работы</span></h2>
     <div class="divider"></div>
     <p class="section-sub fade-up" data-ru="Простой и понятный процесс заказа" data-kz="Қарапайым және түсінікті тапсырыс беру процесі">Простой и понятный процесс заказа</p>
     <div class="steps-list">
@@ -761,7 +771,7 @@ background:var(--orange);color:var(--dark);
 <!-- ADVANTAGES / Преимущества -->
 <section id="advantages">
   <div class="container">
-    <h2 class="section-title fade-up"><span data-ru="Почему" data-kz="Неліктен">Почему</span> <span style="color:var(--orange)" data-ru="мы" data-kz="біз">мы</span></h2>
+    <h2 class="section-title fade-up"><span data-ru="Почему" data-kz="Неліктен">Почему</span> <span data-ru="мы" data-kz="біз">мы</span></h2>
     <div class="divider"></div>
     <div class="adv-grid">
       <div class="adv-card fade-up">
@@ -795,7 +805,7 @@ background:var(--orange);color:var(--dark);
 <!-- COVERAGE / География -->
 <section id="coverage">
   <div class="container">
-    <h2 class="section-title fade-up"><span data-ru="География" data-kz="География">География</span> <span style="color:var(--orange)" data-ru="работ" data-kz="жұмыстар">работ</span></h2>
+    <h2 class="section-title fade-up"><span data-ru="География" data-kz="География">География</span> <span data-ru="работ" data-kz="жұмыстар">работ</span></h2>
     <div class="divider"></div>
     <p class="section-sub fade-up" data-ru="Работаем по Алматы и всем районам Алматинской области" data-kz="Алматы және Алматы облысының барлық аудандары бойынша жұмыс істейміз">Работаем по Алматы и всем районам Алматинской области</p>
     <div class="coverage-areas fade-up">
