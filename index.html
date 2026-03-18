@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Услуги манипулятора в Алматы и области. Аренда манипулятора от 3 до 20 тонн. Быстрая подача, выгодные цены.">
+<title>Услуги манипулятора — Алматы и область</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Roboto+Condensed:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+--orange:#E8750A;
+--orange-light:#F59E2F;
+--dark:#141414;
+--dark2:#1C1C1C;
+--dark3:#252525;
+--gray:#888;
+--light:#F0EDEA;
+--white:#FFFFFF;
+--font-head:'Oswald',sans-serif;
+--font-body:'Roboto Condensed',sans-serif;
+--radius:6px;
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--font-body);background:var(--dark);color:var(--light);line-height:1.6;overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+
+/* ===== HEADER ===== */
+.header{
+position:fixed;top:0;left:0;right:0;z-index:1000;
+background:rgba(20,20,20,.92);
+backdrop-filter:blur(10px);
+-webkit-backdrop-filter:blur(10px);
+border-bottom:1px solid rgba(232,117,10,.15);
+padding:0 20px;
+height:56px;
+display:flex;align-items:center;justify-content:space-between;
+}
+.header-left{display:flex;align-items:center;gap:12px}
+.site-name{
+font-family:var(--font-head);font-size:1.1rem;font-weight:700;
+color:var(--orange);text-transform:uppercase;letter-spacing:2px;
+}
+.lang-switch{
+display:flex;border:1px solid var(--orange);border-radius:var(--radius);overflow:hidden;
+}
+.lang-btn{
+padding:6px 14px;font-family:var(--font-head);font-size:.8rem;font-weight:600;
+background:transparent;color:var(--orange);border:none;cursor:pointer;
+transition:all .2s;letter-spacing:1px;
+}
+.lang-btn.active{background:var(--orange);color:var(--dark)}
+
+/* Hamburger */
+.hamburger{
+width:44px;height:44px;display:flex;flex-direction:column;
+justify-content:center;align-items:center;gap:5px;
+cursor:pointer;background:none;border:none;z-index:1100;
+}
+.hamburger span{
+display:block;width:24px;height:2px;background:var(--orange);
+transition:all .3s ease;border-radius:2px;
+}
+.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+
+/* Side Menu */
+.overlay{
+position:fixed;top:0;left:0;right:0;bottom:0;
+background:rgba(0,0,0,.7);z-index:1050;
+opacity:0;pointer-events:none;transition:opacity .3s;
+}
+.overlay.open{opacity:1;pointer-events:all}
+.side-menu{
+position:fixed;top:0;right:-320px;width:300px;max-width:85vw;
+height:100%;background:var(--dark2);z-index:1060;
+transition:right .35s cubic-bezier(.4,0,.2,1);
+display:flex;flex-direction:column;
+border-left:2px solid var(--orange);
+}
+.side-menu.open{right:0}
+.side-menu-header{
+padding:20px 24px;border-bottom:1px solid var(--dark3);
+font-family:var(--font-head);font-size:1.1rem;
+color:var(--orange);text-transform:uppercase;letter-spacing:2px;
+}
+.side-menu nav{flex:1;padding:16px 0}
+.side-menu nav a{
+display:flex;align-items:center;gap:12px;
+padding:14px 24px;font-family:var(--font-head);
+font-size:1rem;letter-spacing:1px;color:var(--light);
+transition:all .2s;border-left:3px solid transparent;
+}
+.side-menu nav a:hover,.side-menu nav a:active{
+background:rgba(232,117,10,.08);color:var(--orange);
+border-left-color:var(--orange);
+}
+.side-menu nav a svg{width:20px;height:20px;flex-shrink:0;stroke:currentColor}
+.side-menu-footer{
+padding:20px 24px;border-top:1px solid var(--dark3);
+font-size:.8rem;color:var(--gray);text-align:center;
+}
+.side-menu-footer a{color:var(--orange);font-weight:600;transition:opacity .2s}
+.side-menu-footer a:hover{opacity:.7}
+
+/* ===== HERO ===== */
+.hero{
+position:relative;min-height:100vh;display:flex;align-items:center;
+justify-content:center;text-align:center;padding:80px 20px 40px;
+overflow:hidden;
+}
+.hero-bg{
+position:absolute;top:0;left:0;right:0;bottom:0;
+background:url('fon.jpg') center/cover no-repeat;
+}
+.hero-bg::after{
+content:'';position:absolute;top:0;left:0;right:0;bottom:0;
+background:linear-gradient(180deg,rgba(20,20,20,.75) 0%,rgba(20,20,20,.6) 50%,rgba(20,20,20,.95) 100%);
+}
+.hero-content{position:relative;z-index:2;max-width:800px}
+.hero-badge{
+display:inline-block;padding:6px 20px;
+background:rgba(232,117,10,.15);border:1px solid var(--orange);
+border-radius:50px;font-family:var(--font-head);font-size:.75rem;
+font-weight:600;color:var(--orange);letter-spacing:3px;
+text-transform:uppercase;margin-bottom:20px;
+}
+.hero h1{
+font-family:var(--font-head);font-size:clamp(2.2rem,7vw,4.5rem);
+font-weight:700;text-transform:uppercase;line-height:1.1;
+margin-bottom:16px;color:var(--white);
+}
+.hero h1 span{color:var(--orange)}
+.hero-sub{
+font-size:clamp(1rem,2.5vw,1.3rem);color:var(--gray);
+max-width:600px;margin:0 auto 32px;font-weight:300;
+}
+.hero-cta{
+display:inline-flex;align-items:center;gap:10px;
+padding:16px 40px;background:var(--orange);color:var(--dark);
+font-family:var(--font-head);font-size:1.1rem;font-weight:700;
+text-transform:uppercase;letter-spacing:2px;
+border-radius:var(--radius);border:none;cursor:pointer;
+transition:all .25s;
+}
+.hero-cta:hover{background:var(--orange-light);transform:translateY(-2px);box-shadow:0 8px 30px rgba(232,117,10,.3)}
+.hero-cta svg{width:22px;height:22px}
+
+.hero-stats{
+display:flex;justify-content:center;gap:40px;margin-top:48px;
+flex-wrap:wrap;
+}
+.hero-stat{text-align:center}
+.hero-stat-num{
+font-family:var(--font-head);font-size:clamp(1.8rem,4vw,2.8rem);
+font-weight:700;color:var(--orange);line-height:1;
+}
+.hero-stat-label{font-size:.8rem;color:var(--gray);margin-top:4px;text-transform:uppercase;letter-spacing:1px}
+
+/* ===== SECTIONS ===== */
+section{padding:80px 20px}
+.container{max-width:1100px;margin:0 auto}
+.section-title{
+font-family:var(--font-head);font-size:clamp(1.8rem,4vw,2.8rem);
+font-weight:700;text-transform:uppercase;text-align:center;
+margin-bottom:12px;color:var(--white);
+}
+.section-title span{color:var(--orange)}
+.section-sub{
+text-align:center;color:var(--gray);max-width:600px;
+margin:0 auto 48px;font-size:1rem;
+}
+.divider{
+width:60px;height:3px;background:var(--orange);
+margin:16px auto 20px;border-radius:2px;
+}
+
+/* ===== FLEET / Техника ===== */
+#fleet{background:var(--dark)}
+.fleet-grid{
+display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
+gap:24px;
+}
+.fleet-card{
+background:var(--dark2);border-radius:var(--radius);
+overflow:hidden;border:1px solid var(--dark3);
+transition:all .3s;
+}
+.fleet-card:hover{border-color:var(--orange);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.4)}
+.fleet-card-img{
+position:relative;height:220px;overflow:hidden;background:var(--dark3);
+}
+.fleet-card-img img{
+width:100%;height:100%;object-fit:cover;
+transition:transform .4s;
+}
+.fleet-card:hover .fleet-card-img img{transform:scale(1.05)}
+.fleet-card-badge{
+position:absolute;top:12px;left:12px;
+padding:4px 14px;background:var(--orange);color:var(--dark);
+font-family:var(--font-head);font-size:.75rem;font-weight:700;
+border-radius:var(--radius);letter-spacing:1px;text-transform:uppercase;
+}
+.fleet-card-body{padding:20px}
+.fleet-card-name{
+font-family:var(--font-head);font-size:1.2rem;font-weight:700;
+color:var(--white);margin-bottom:12px;text-transform:uppercase;
+letter-spacing:1px;
+}
+.fleet-card-specs{display:flex;flex-direction:column;gap:8px}
+.fleet-spec{
+display:flex;align-items:center;gap:10px;
+font-size:.9rem;color:var(--light);
+}
+.fleet-spec svg{width:18px;height:18px;stroke:var(--orange);flex-shrink:0}
+
+/* ===== SERVICES / Услуги ===== */
+#services{background:var(--dark2)}
+.services-grid{
+display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+gap:20px;
+}
+.service-card{
+padding:28px 24px;background:var(--dark);
+border-radius:var(--radius);border:1px solid var(--dark3);
+transition:all .3s;text-align:center;
+}
+.service-card:hover{border-color:var(--orange);transform:translateY(-3px)}
+.service-icon{
+width:56px;height:56px;border-radius:50%;
+background:rgba(232,117,10,.1);border:1px solid rgba(232,117,10,.3);
+display:flex;align-items:center;justify-content:center;
+margin:0 auto 16px;
+}
+.service-icon svg{width:26px;height:26px;stroke:var(--orange)}
+.service-card h3{
+font-family:var(--font-head);font-size:1.05rem;font-weight:600;
+color:var(--white);margin-bottom:8px;text-transform:uppercase;
+letter-spacing:1px;
+}
+.service-card p{font-size:.9rem;color:var(--gray);line-height:1.5}
+
+/* ===== HOW IT WORKS / Этапы ===== */
+#steps{background:var(--dark)}
+.steps-list{
+display:flex;flex-direction:column;gap:0;
+max-width:700px;margin:0 auto;position:relative;
+}
+.steps-list::before{
+content:'';position:absolute;left:28px;top:0;bottom:0;
+width:2px;background:var(--dark3);
+}
+.step-item{
+display:flex;gap:20px;padding:24px 0;position:relative;
+}
+.step-num{
+width:56px;height:56px;border-radius:50%;flex-shrink:0;
+background:var(--dark2);border:2px solid var(--orange);
+display:flex;align-items:center;justify-content:center;
+font-family:var(--font-head);font-size:1.3rem;font-weight:700;
+color:var(--orange);z-index:1;
+}
+.step-content h3{
+font-family:var(--font-head);font-size:1.05rem;font-weight:600;
+color:var(--white);margin-bottom:6px;text-transform:uppercase;
+}
+.step-content p{font-size:.9rem;color:var(--gray)}
+
+/* ===== ADVANTAGES / Преимущества ===== */
+#advantages{background:var(--dark2)}
+.adv-grid{
+display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+gap:20px;
+}
+.adv-card{
+padding:24px 20px;background:var(--dark);
+border-radius:var(--radius);border-left:3px solid var(--orange);
+transition:all .3s;
+}
+.adv-card:hover{transform:translateX(4px)}
+.adv-card h3{
+font-family:var(--font-head);font-size:.95rem;font-weight:600;
+color:var(--white);margin-bottom:6px;text-transform:uppercase;
+}
+.adv-card p{font-size:.85rem;color:var(--gray)}
+
+/* ===== COVERAGE / География ===== */
+#coverage{background:var(--dark)}
+.coverage-areas{
+display:flex;flex-wrap:wrap;justify-content:center;gap:12px;
+max-width:800px;margin:0 auto;
+}
+.coverage-tag{
+padding:10px 22px;background:var(--dark2);
+border:1px solid var(--dark3);border-radius:50px;
+font-family:var(--font-head);font-size:.85rem;font-weight:500;
+color:var(--light);letter-spacing:1px;
+transition:all .2s;
+}
+.coverage-tag:hover{border-color:var(--orange);color:var(--orange)}
+
+/* ===== CTA Section ===== */
+#cta{
+background:linear-gradient(135deg,var(--orange) 0%,#c45e00 100%);
+text-align:center;padding:60px 20px;
+}
+#cta h2{
+font-family:var(--font-head);font-size:clamp(1.6rem,4vw,2.4rem);
+font-weight:700;color:var(--dark);text-transform:uppercase;
+margin-bottom:12px;
+}
+#cta p{color:rgba(20,20,20,.7);margin-bottom:28px;font-size:1.05rem}
+.cta-buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.cta-btn{
+display:inline-flex;align-items:center;gap:8px;
+padding:14px 32px;border-radius:var(--radius);
+font-family:var(--font-head);font-size:1rem;font-weight:700;
+text-transform:uppercase;letter-spacing:1px;cursor:pointer;
+transition:all .25s;border:2px solid var(--dark);
+}
+.cta-btn--dark{background:var(--dark);color:var(--orange)}
+.cta-btn--dark:hover{background:var(--dark2)}
+.cta-btn--outline{background:transparent;color:var(--dark)}
+.cta-btn--outline:hover{background:rgba(0,0,0,.1)}
+.cta-btn svg{width:20px;height:20px}
+
+/* ===== FOOTER ===== */
+.footer{
+background:var(--dark2);border-top:1px solid var(--dark3);
+text-align:center;padding:28px 20px;
+font-size:.8rem;color:var(--gray);
+}
+
+/* ===== SCROLL TO TOP ===== */
+.scroll-top{
+position:fixed;bottom:100px;right:20px;z-index:900;
+width:48px;height:48px;border-radius:50%;
+background:var(--dark2);border:1px solid var(--dark3);
+display:flex;align-items:center;justify-content:center;
+cursor:pointer;opacity:0;pointer-events:none;
+transition:all .3s;
+}
+.scroll-top.visible{opacity:1;pointer-events:all}
+.scroll-top:hover{border-color:var(--orange);background:var(--dark3)}
+.scroll-top svg{width:22px;height:22px;stroke:var(--orange)}
+
+/* ===== BOTTOM CONTACT BAR ===== */
+.bottom-bar{
+position:fixed;bottom:0;left:0;right:0;z-index:950;
+background:rgba(20,20,20,.95);backdrop-filter:blur(8px);
+-webkit-backdrop-filter:blur(8px);
+border-top:2px solid var(--orange);
+padding:0;display:flex;height:56px;
+}
+.bottom-bar a{
+flex:1;display:flex;align-items:center;justify-content:center;gap:8px;
+font-family:var(--font-head);font-size:.9rem;font-weight:600;
+text-transform:uppercase;letter-spacing:1px;
+transition:background .2s;color:var(--light);
+}
+.bottom-bar a:first-child{
+background:var(--orange);color:var(--dark);
+}
+.bottom-bar a:first-child:hover{background:var(--orange-light)}
+.bottom-bar a:last-child:hover{background:var(--dark3)}
+.bottom-bar svg{width:22px;height:22px}
+
+/* ===== ANIMATIONS ===== */
+.fade-up{opacity:0;transform:translateY(30px);transition:all .6s cubic-bezier(.4,0,.2,1)}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+  section{padding:60px 16px}
+  .fleet-grid{grid-template-columns:1fr}
+  .services-grid{grid-template-columns:1fr}
+  .adv-grid{grid-template-columns:1fr}
+  .hero-stats{gap:24px}
+  .hero-stat-num{font-size:2rem}
+  .site-name{display:none}
+  .steps-list::before{left:26px}
+}
+@media(max-width:400px){
+  .lang-btn{padding:5px 10px;font-size:.7rem}
+  .hero-cta{padding:14px 28px;font-size:1rem}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-left">
+    <span class="site-name" data-ru="Манипулятор" data-kz="Манипулятор">Манипулятор</span>
+    <div class="lang-switch">
+      <button class="lang-btn active" data-lang="ru" onclick="setLang('ru')">РУ</button>
+      <button class="lang-btn" data-lang="kz" onclick="setLang('kz')">ҚАЗ</button>
+    </div>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Меню">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- OVERLAY -->
+<div class="overlay" id="overlay"></div>
+
+<!-- SIDE MENU -->
+<div class="side-menu" id="sideMenu">
+  <div class="side-menu-header" data-ru="Меню" data-kz="Мәзір">Меню</div>
+  <nav>
+    <a href="#hero" onclick="closeMenu()">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1"/></svg>
+      <span data-ru="Главная" data-kz="Басты бет">Главная</span>
+    </a>
+    <a href="#fleet" onclick="closeMenu()">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="1" y="6" width="22" height="12" rx="2"/><path d="M6 18v2M18 18v2M6 6V4M18 6V4"/></svg>
+      <span data-ru="Наша техника" data-kz="Біздің техника">Наша техника</span>
+    </a>
+    <a href="#services" onclick="closeMenu()">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+      <span data-ru="Услуги" data-kz="Қызметтер">Услуги</span>
+    </a>
+    <a href="#steps" onclick="closeMenu()">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+      <span data-ru="Этапы работы" data-kz="Жұмыс кезеңдері">Этапы работы</span>
+    </a>
+    <a href="#advantages" onclick="closeMenu()">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      <span data-ru="Преимущества" data-kz="Артықшылықтар">Преимущества</span>
+    </a>
+    <a href="#coverage" onclick="closeMenu()">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      <span data-ru="География" data-kz="География">География</span>
+    </a>
+    <a href="#cta" onclick="closeMenu()">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.13.81.36 1.6.68 2.34a2 2 0 01-.45 2.11L8.09 9.41a16 16 0 006.5 6.5l1.24-1.24a2 2 0 012.11-.45c.74.32 1.53.55 2.34.68a2 2 0 011.72 2z"/></svg>
+      <span data-ru="Связаться" data-kz="Байланыс">Связаться</span>
+    </a>
+  </nav>
+  <div class="side-menu-footer">
+    <span data-ru="Разработчик сайта — " data-kz="Сайт әзірлеушісі — ">Разработчик сайта — </span><a href="https://wa.me/77074534518" target="_blank" rel="noopener">Anuken</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-bg" loading="eager"></div>
+  <div class="hero-content fade-up">
+    <div class="hero-badge" data-ru="г. Алматы и область" data-kz="Алматы қ. және облысы">г. Алматы и область</div>
+    <h1>
+      <span data-ru="Услуги" data-kz="Қызметтер">Услуги</span><br>
+      <span class="orange-text" style="color:var(--orange)" data-ru="манипулятора" data-kz="манипулятор">манипулятора</span>
+    </h1>
+    <p class="hero-sub" data-ru="Аренда манипуляторов от 3 до 20 тонн. Быстрая подача, грузоперевозки любой сложности по выгодным ценам." data-kz="3-тен 20 тоннаға дейін манипулятор жалдау. Жылдам жеткізу, кез келген күрделіліктегі жүктерді тасымалдау.">Аренда манипуляторов от 3 до 20 тонн. Быстрая подача, грузоперевозки любой сложности по выгодным ценам.</p>
+    <a href="https://wa.me/77072122040" target="_blank" rel="noopener" class="hero-cta">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+      <span data-ru="Оставить заявку" data-kz="Өтінім қалдыру">Оставить заявку</span>
+    </a>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num">6+</div>
+        <div class="hero-stat-label" data-ru="Видов техники" data-kz="Техника түрлері">Видов техники</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">24/7</div>
+        <div class="hero-stat-label" data-ru="На связи" data-kz="Байланыста">На связи</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">30<span style="font-size:.6em">мин</span></div>
+        <div class="hero-stat-label" data-ru="Подача техники" data-kz="Техника жеткізу">Подача техники</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FLEET / Техника -->
+<section id="fleet">
+  <div class="container">
+    <h2 class="section-title fade-up"><span data-ru="Наша" data-kz="Біздің">Наша</span> <span style="color:var(--orange)" data-ru="техника" data-kz="техника">техника</span></h2>
+    <div class="divider"></div>
+    <p class="section-sub fade-up" data-ru="6 видов манипуляторов грузоподъёмностью от 3 до 20 тонн для задач любой сложности" data-kz="Кез келген күрделіліктегі тапсырмалар үшін 3-тен 20 тоннаға дейін жүк көтергіштігі бар 6 түрлі манипулятор">6 видов манипуляторов грузоподъёмностью от 3 до 20 тонн для задач любой сложности</p>
+    <div class="fleet-grid">
+
+      <!-- Card 1 -->
+      <div class="fleet-card fade-up">
+        <div class="fleet-card-img">
+          <img src="manipulator-3t.jpg" alt="Манипулятор 3 тонны" loading="lazy" width="400" height="260" decoding="async">
+          <div class="fleet-card-badge">3 <span data-ru="тонны" data-kz="тонна">тонны</span></div>
+        </div>
+        <div class="fleet-card-body">
+          <div class="fleet-card-name" data-ru="Манипулятор 3 тонны" data-kz="3 тонналық манипулятор">Манипулятор 3 тонны</div>
+          <div class="fleet-card-specs">
+            <div class="fleet-spec"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg><span data-ru="Грузоподъёмность: 3 т" data-kz="Жүк көтергіштігі: 3 т">Грузоподъёмность: 3 т</span></div>
+            <div class="fleet-spec"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M21 3l-6.5 18a.55.55 0 01-1 0L10 12.5 2.5 9a.55.55 0 010-1L21 3z"/></svg><span data-ru="Вылет стрелы: до 8 м" data-kz="Жебе ұзындығы: 8 м-ге дейін">Вылет стрелы: до 8 м</span></div>
+            <div class="fleet-spec"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 3l-4 4-4-4"/></svg><span data-ru="Борт: 5 м" data-kz="Борт: 5 м">Борт: 5 м</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="fleet-card fade-up">
+        <div class="fleet-card-img">
+          <img src="manipulator-5t.jpg" alt="Манипулятор 5 тонн" loading="lazy" width="400" height="260" decoding="async">
+          <div class="fleet-card-badge">5 <span data-ru="тонн" data-kz="тонна">тонн</span></div>
+        </div>
+        <div class="fleet-card-body">
+          <div class="fleet-card-name" data-ru="Манипулятор 5 тонн" data-kz="5 тонналық манипулятор">Манипулятор 5 тонн</div>
+          <div class="fleet-card-specs">
+            <div class="fleet-spec"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg><span data-ru="Грузоподъёмность: 5 т" data-kz="Жүк көтергіштігі: 5 т">Грузоподъёмность: 5 т</span></div>
+            <div class="fleet-spec"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M21 3l-6.5 18a.55.55 0 01-1 0L10 12.5 2.5 9a.55.55 0 010-1L21 3z"/></svg><span data-ru="Вылет стрелы: до 10 м" data-kz="Жебе ұзындығы: 10 м-ге дейін">Вылет стрелы: до 10 м</span></div>
+            <div class="fleet-spec"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 3l-4 4-4-4"/></svg><span data-ru="Борт: 6 м" data-kz="Борт: 6 м">Борт: 6 м</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="fleet-card fade-up">
+        <div class="fleet-card-img">
+          <img src="manipulator-7t.jpg" alt="Манипулятор 7 тонн" loading="lazy" width="400" height="260" decoding="async">
+          <div class="fleet-card-badge">7 <span data-ru="тонн" data-kz="тонна">тонн</span></div>
+        </div>
+        <div class="fleet-card-body">
+          <div class="fleet-card-name" data-ru="Манипулятор 7 тонн" data-kz="7 тонналық манипулятор">Манипулятор 7 тонн</div>
+          <div class="fleet-card-specs">
+            <div class="fleet-spec"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg><span data-ru="Грузоподъёмность: 7 т" data-kz="Жүк көтергіштігі: 7 т">Грузоподъёмность: 7 т</span></div>
+            <div class="fleet-spec"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M21 3l-6.5 18a.55.55 0 01-1 0L10 12.5 2.5 9a.55.55 0 010-1L21 3z"/></svg><span data-ru="Вылет стрелы: до 12 м" data-kz="Жебе ұзындығы: 12 м-ге дейін">Вылет стрелы: до 12 м</span></div>
+            <div class="fleet-spec"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 3l-4 4-4-4"/></svg><span data-ru="Борт: 7 м" data-kz="Борт: 7 м">Борт: 7 м</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="fleet-card fade-up">
+        <div class="fleet-card-img">
+          <img src="manipulator-10t.jpg" alt="Манипулятор 10 тонн" loading="lazy" width="400" height="260" decoding="async">
+          <div class="fleet-card-badge">10 <span data-ru="тонн" data-kz="тонна">тонн</span></div>
+        </div>
+        <div class="fleet-card-body">
+          <div class="fleet-card-name" data-ru="Манипулятор 10 тонн" data-kz="10 тонналық манипулятор">Манипулятор 10 тонн</div>
+          <div class="fleet-card-specs">
+            <div class="fleet-spec"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg><span data-ru="Грузоподъёмность: 10 т" data-kz="Жүк көтергіштігі: 10 т">Грузоподъёмность: 10 т</span></div>
+            <div class="fleet-spec"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M21 3l-6.5 18a.55.55 0 01-1 0L10 12.5 2.5 9a.55.55 0 010-1L21 3z"/></svg><span data-ru="Вылет стрелы: до 15 м" data-kz="Жебе ұзындығы: 15 м-ге дейін">Вылет стрелы: до 15 м</span></div>
+            <div class="fleet-spec"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 3l-4 4-4-4"/></svg><span data-ru="Борт: 8 м" data-kz="Борт: 8 м">Борт: 8 м</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="fleet-card fade-up">
+        <div class="fleet-card-img">
+          <img src="manipulator-15t.jpg" alt="Манипулятор 15 тонн" loading="lazy" width="400" height="260" decoding="async">
+          <div class="fleet-card-badge">15 <span data-ru="тонн" data-kz="тонна">тонн</span></div>
+        </div>
+        <div class="fleet-card-body">
+          <div class="fleet-card-name" data-ru="Манипулятор 15 тонн" data-kz="15 тонналық манипулятор">Манипулятор 15 тонн</div>
+          <div class="fleet-card-specs">
+            <div class="fleet-spec"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg><span data-ru="Грузоподъёмность: 15 т" data-kz="Жүк көтергіштігі: 15 т">Грузоподъёмность: 15 т</span></div>
+            <div class="fleet-spec"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M21 3l-6.5 18a.55.55 0 01-1 0L10 12.5 2.5 9a.55.55 0 010-1L21 3z"/></svg><span data-ru="Вылет стрелы: до 18 м" data-kz="Жебе ұзындығы: 18 м-ге дейін">Вылет стрелы: до 18 м</span></div>
+            <div class="fleet-spec"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 3l-4 4-4-4"/></svg><span data-ru="Борт: 9 м" data-kz="Борт: 9 м">Борт: 9 м</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="fleet-card fade-up">
+        <div class="fleet-card-img">
+          <img src="manipulator-20t.jpg" alt="Манипулятор 20 тонн" loading="lazy" width="400" height="260" decoding="async">
+          <div class="fleet-card-badge">20 <span data-ru="тонн" data-kz="тонна">тонн</span></div>
+        </div>
+        <div class="fleet-card-body">
+          <div class="fleet-card-name" data-ru="Манипулятор 20 тонн" data-kz="20 тонналық манипулятор">Манипулятор 20 тонн</div>
+          <div class="fleet-card-specs">
+            <div class="fleet-spec"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg><span data-ru="Грузоподъёмность: 20 т" data-kz="Жүк көтергіштігі: 20 т">Грузоподъёмность: 20 т</span></div>
+            <div class="fleet-spec"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M21 3l-6.5 18a.55.55 0 01-1 0L10 12.5 2.5 9a.55.55 0 010-1L21 3z"/></svg><span data-ru="Вылет стрелы: до 22 м" data-kz="Жебе ұзындығы: 22 м-ге дейін">Вылет стрелы: до 22 м</span></div>
+            <div class="fleet-spec"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 3l-4 4-4-4"/></svg><span data-ru="Борт: 10 м" data-kz="Борт: 10 м">Борт: 10 м</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES / Услуги -->
+<section id="services">
+  <div class="container">
+    <h2 class="section-title fade-up"><span data-ru="Наши" data-kz="Біздің">Наши</span> <span style="color:var(--orange)" data-ru="услуги" data-kz="қызметтер">услуги</span></h2>
+    <div class="divider"></div>
+    <p class="section-sub fade-up" data-ru="Полный спектр услуг манипулятора для строительства, перевозки и монтажа" data-kz="Құрылыс, тасымалдау және монтаждау үшін манипулятор қызметтерінің толық спектрі">Полный спектр услуг манипулятора для строительства, перевозки и монтажа</p>
+    <div class="services-grid">
+      <div class="service-card fade-up">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="1" y="6" width="22" height="12" rx="2"/><path d="M6 18v2M18 18v2M6 6V4M18 6V4"/></svg></div>
+        <h3 data-ru="Перевозка грузов" data-kz="Жүк тасымалдау">Перевозка грузов</h3>
+        <p data-ru="Транспортировка строительных материалов, оборудования, контейнеров и негабаритных грузов" data-kz="Құрылыс материалдарын, жабдықтарды, контейнерлерді және габаритті емес жүктерді тасымалдау">Транспортировка строительных материалов, оборудования, контейнеров и негабаритных грузов</p>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+        <h3 data-ru="Погрузка / Разгрузка" data-kz="Тиеу / Түсіру">Погрузка / Разгрузка</h3>
+        <p data-ru="Погрузочно-разгрузочные работы с использованием крановой стрелы манипулятора" data-kz="Манипулятордың кран жебесін пайдаланып тиеу-түсіру жұмыстары">Погрузочно-разгрузочные работы с использованием крановой стрелы манипулятора</p>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M2 20h20M5 20V8l7-5 7 5v12"/><path d="M9 20v-6h6v6"/></svg></div>
+        <h3 data-ru="Монтажные работы" data-kz="Монтаж жұмыстары">Монтажные работы</h3>
+        <p data-ru="Монтаж и демонтаж конструкций, установка бытовок, блок-контейнеров" data-kz="Құрылымдарды монтаждау және демонтаждау, тұрмыстық үйлерді, блок-контейнерлерді орнату">Монтаж и демонтаж конструкций, установка бытовок, блок-контейнеров</p>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+        <h3 data-ru="Почасовая аренда" data-kz="Сағаттық жалдау">Почасовая аренда</h3>
+        <p data-ru="Аренда манипулятора с оператором на час, смену или на весь проект" data-kz="Манипуляторды оператормен бірге сағатына, ауысымына немесе бүкіл жобаға жалдау">Аренда манипулятора с оператором на час, смену или на весь проект</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STEPS / Этапы работы -->
+<section id="steps">
+  <div class="container">
+    <h2 class="section-title fade-up"><span data-ru="Этапы" data-kz="Жұмыс">Этапы</span> <span style="color:var(--orange)" data-ru="работы" data-kz="кезеңдері">работы</span></h2>
+    <div class="divider"></div>
+    <p class="section-sub fade-up" data-ru="Простой и понятный процесс заказа" data-kz="Қарапайым және түсінікті тапсырыс беру процесі">Простой и понятный процесс заказа</p>
+    <div class="steps-list">
+      <div class="step-item fade-up">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h3 data-ru="Заявка" data-kz="Өтінім">Заявка</h3>
+          <p data-ru="Вы оставляете заявку через WhatsApp или звоните напрямую. Опишите задачу — мы подберём подходящую технику." data-kz="WhatsApp арқылы өтінім қалдырасыз немесе тікелей қоңырау шаласыз. Тапсырманы сипаттаңыз — біз қажетті техниканы таңдаймыз.">Вы оставляете заявку через WhatsApp или звоните напрямую. Опишите задачу — мы подберём подходящую технику.</p>
+        </div>
+      </div>
+      <div class="step-item fade-up">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h3 data-ru="Расчёт стоимости" data-kz="Құнын есептеу">Расчёт стоимости</h3>
+          <p data-ru="Рассчитаем стоимость исходя из типа техники, объёма работ и расстояния. Без скрытых доплат." data-kz="Техника түрі, жұмыс көлемі және қашықтық бойынша құнын есептейміз. Жасырын қосымша төлемсіз.">Рассчитаем стоимость исходя из типа техники, объёма работ и расстояния. Без скрытых доплат.</p>
+        </div>
+      </div>
+      <div class="step-item fade-up">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h3 data-ru="Подача техники" data-kz="Техниканы жеткізу">Подача техники</h3>
+          <p data-ru="Манипулятор прибывает на объект в оговорённое время. Подача по Алматы — от 30 минут." data-kz="Манипулятор келісілген уақытта объектіге келеді. Алматы бойынша жеткізу — 30 минуттан.">Манипулятор прибывает на объект в оговорённое время. Подача по Алматы — от 30 минут.</p>
+        </div>
+      </div>
+      <div class="step-item fade-up">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <h3 data-ru="Выполнение работ" data-kz="Жұмысты орындау">Выполнение работ</h3>
+          <p data-ru="Опытный оператор выполняет все работы. Безопасно, аккуратно и в срок." data-kz="Тәжірибелі оператор барлық жұмыстарды орындайды. Қауіпсіз, ұқыпты және мерзімінде.">Опытный оператор выполняет все работы. Безопасно, аккуратно и в срок.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ADVANTAGES / Преимущества -->
+<section id="advantages">
+  <div class="container">
+    <h2 class="section-title fade-up"><span data-ru="Почему" data-kz="Неліктен">Почему</span> <span style="color:var(--orange)" data-ru="мы" data-kz="біз">мы</span></h2>
+    <div class="divider"></div>
+    <div class="adv-grid">
+      <div class="adv-card fade-up">
+        <h3 data-ru="Быстрая подача" data-kz="Жылдам жеткізу">Быстрая подача</h3>
+        <p data-ru="Техника на объекте от 30 минут по г. Алматы" data-kz="Алматы қ. бойынша техника объектіде 30 минуттан">Техника на объекте от 30 минут по г. Алматы</p>
+      </div>
+      <div class="adv-card fade-up">
+        <h3 data-ru="Выгодные цены" data-kz="Тиімді бағалар">Выгодные цены</h3>
+        <p data-ru="Прозрачное ценообразование без скрытых наценок" data-kz="Жасырын үстемесіз мөлдір баға белгілеу">Прозрачное ценообразование без скрытых наценок</p>
+      </div>
+      <div class="adv-card fade-up">
+        <h3 data-ru="Опытные операторы" data-kz="Тәжірибелі операторлар">Опытные операторы</h3>
+        <p data-ru="Профессиональные крановщики с многолетним стажем" data-kz="Көп жылдық тәжірибесі бар кәсіби крановщиктер">Профессиональные крановщики с многолетним стажем</p>
+      </div>
+      <div class="adv-card fade-up">
+        <h3 data-ru="Работаем 24/7" data-kz="24/7 жұмыс істейміз">Работаем 24/7</h3>
+        <p data-ru="Принимаем заказы круглосуточно, без выходных" data-kz="Тәулік бойы, демалыссыз тапсырыс қабылдаймыз">Принимаем заказы круглосуточно, без выходных</p>
+      </div>
+      <div class="adv-card fade-up">
+        <h3 data-ru="Любые объёмы" data-kz="Кез келген көлем">Любые объёмы</h3>
+        <p data-ru="От разовых подач до постоянного обслуживания объектов" data-kz="Бір реттік жеткізуден объектілерді тұрақты қызмет көрсетуге дейін">От разовых подач до постоянного обслуживания объектов</p>
+      </div>
+      <div class="adv-card fade-up">
+        <h3 data-ru="Вся область" data-kz="Бүкіл облыс">Вся область</h3>
+        <p data-ru="Работаем по всей Алматинской области без ограничений" data-kz="Алматы облысы бойынша шектеусіз жұмыс істейміз">Работаем по всей Алматинской области без ограничений</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COVERAGE / География -->
+<section id="coverage">
+  <div class="container">
+    <h2 class="section-title fade-up"><span data-ru="География" data-kz="География">География</span> <span style="color:var(--orange)" data-ru="работ" data-kz="жұмыстар">работ</span></h2>
+    <div class="divider"></div>
+    <p class="section-sub fade-up" data-ru="Работаем по Алматы и всем районам Алматинской области" data-kz="Алматы және Алматы облысының барлық аудандары бойынша жұмыс істейміз">Работаем по Алматы и всем районам Алматинской области</p>
+    <div class="coverage-areas fade-up">
+      <span class="coverage-tag">Алматы</span>
+      <span class="coverage-tag">Талгар</span>
+      <span class="coverage-tag">Каскелен</span>
+      <span class="coverage-tag">Есик</span>
+      <span class="coverage-tag">Капчагай</span>
+      <span class="coverage-tag">Талдыкорган</span>
+      <span class="coverage-tag">Текели</span>
+      <span class="coverage-tag">Конаев</span>
+      <span class="coverage-tag">Узынагаш</span>
+      <span class="coverage-tag">Шелек</span>
+      <span class="coverage-tag">Отеген Батыр</span>
+      <span class="coverage-tag">Карасай</span>
+      <span class="coverage-tag" data-ru="и вся область" data-kz="және бүкіл облыс">и вся область</span>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <h2 data-ru="Нужен манипулятор?" data-kz="Манипулятор қажет пе?">Нужен манипулятор?</h2>
+  <p data-ru="Свяжитесь с нами прямо сейчас — подберём технику под вашу задачу" data-kz="Бізбен қазір байланысыңыз — тапсырмаңызға техника таңдаймыз">Свяжитесь с нами прямо сейчас — подберём технику под вашу задачу</p>
+  <div class="cta-buttons">
+    <a href="https://wa.me/77072122040" target="_blank" rel="noopener" class="cta-btn cta-btn--dark">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.146.564 4.16 1.546 5.902L.055 23.487a.5.5 0 00.612.612l5.584-1.49A11.93 11.93 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.82c-1.973 0-3.865-.575-5.505-1.665l-.395-.262-3.313.883.874-3.238-.281-.412A9.77 9.77 0 012.18 12 9.82 9.82 0 0112 2.18 9.82 9.82 0 0121.82 12 9.82 9.82 0 0112 21.82z"/></svg>
+      <span>WhatsApp</span>
+    </a>
+    <a href="tel:+77072122040" class="cta-btn cta-btn--outline">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.13.81.36 1.6.68 2.34a2 2 0 01-.45 2.11L8.09 9.41a16 16 0 006.5 6.5l1.24-1.24a2 2 0 012.11-.45c.74.32 1.53.55 2.34.68a2 2 0 011.72 2z"/></svg>
+      <span data-ru="Позвонить" data-kz="Қоңырау шалу">Позвонить</span>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>&copy; 2026 — <span data-ru="Услуги манипулятора, г. Алматы" data-kz="Манипулятор қызметтері, Алматы қ.">Услуги манипулятора, г. Алматы</span></p>
+</footer>
+
+<!-- SCROLL TO TOP -->
+<button class="scroll-top" id="scrollTop" aria-label="Наверх">
+  <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<!-- BOTTOM CONTACT BAR -->
+<div class="bottom-bar">
+  <a href="https://wa.me/77072122040" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.146.564 4.16 1.546 5.902L.055 23.487a.5.5 0 00.612.612l5.584-1.49A11.93 11.93 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.82c-1.973 0-3.865-.575-5.505-1.665l-.395-.262-3.313.883.874-3.238-.281-.412A9.77 9.77 0 012.18 12 9.82 9.82 0 0112 2.18 9.82 9.82 0 0121.82 12 9.82 9.82 0 0112 21.82z"/></svg>
+    WhatsApp
+  </a>
+  <a href="tel:+77072122040">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.13.81.36 1.6.68 2.34a2 2 0 01-.45 2.11L8.09 9.41a16 16 0 006.5 6.5l1.24-1.24a2 2 0 012.11-.45c.74.32 1.53.55 2.34.68a2 2 0 011.72 2z"/></svg>
+    <span data-ru="Позвонить" data-kz="Қоңырау шалу">Позвонить</span>
+  </a>
+</div>
+
+<script>
+// ===== LANGUAGE SWITCH =====
+let currentLang = 'ru';
+function setLang(lang) {
+  currentLang = lang;
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+  document.querySelectorAll('[data-' + lang + ']').forEach(el => {
+    const text = el.getAttribute('data-' + lang);
+    if (text) el.textContent = text;
+  });
+}
+
+// ===== HAMBURGER MENU =====
+const hamburger = document.getElementById('hamburger');
+const sideMenu = document.getElementById('sideMenu');
+const overlay = document.getElementById('overlay');
+
+function toggleMenu() {
+  hamburger.classList.toggle('open');
+  sideMenu.classList.toggle('open');
+  overlay.classList.toggle('open');
+  document.body.style.overflow = sideMenu.classList.contains('open') ? 'hidden' : '';
+}
+function closeMenu() {
+  hamburger.classList.remove('open');
+  sideMenu.classList.remove('open');
+  overlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
+hamburger.addEventListener('click', toggleMenu);
+overlay.addEventListener('click', closeMenu);
+
+// ===== SCROLL TO TOP =====
+const scrollTopBtn = document.getElementById('scrollTop');
+window.addEventListener('scroll', () => {
+  scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
+}, {passive: true});
+scrollTopBtn.addEventListener('click', () => window.scrollTo({top: 0, behavior: 'smooth'}));
+
+// ===== FADE-UP ON SCROLL =====
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, {threshold: 0.1, rootMargin: '0px 0px -40px 0px'});
+
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
