@@ -162,28 +162,28 @@ font-weight:700;color:var(--orange);line-height:1;
 .hero-stat-label{font-size:.8rem;color:var(--gray);margin-top:4px;text-transform:uppercase;letter-spacing:1px}
 
 /* ===== SECTIONS ===== */
-section{padding:80px 20px}
+section{padding:50px 20px}
 .container{max-width:1100px;margin:0 auto}
 .section-title{
-font-family:var(--font-head);font-size:clamp(1.8rem,4vw,2.8rem);
+font-family:var(--font-head);font-size:clamp(1.5rem,4vw,2.8rem);
 font-weight:700;text-transform:uppercase;text-align:center;
-margin-bottom:12px;color:var(--white);
+margin-bottom:8px;color:var(--white);
 }
 .section-title span{color:var(--orange)}
 .section-sub{
 text-align:center;color:var(--gray);max-width:600px;
-margin:0 auto 48px;font-size:1rem;
+margin:0 auto 28px;font-size:.9rem;
 }
 .divider{
-width:60px;height:3px;background:var(--orange);
-margin:16px auto 20px;border-radius:2px;
+width:50px;height:3px;background:var(--orange);
+margin:10px auto 14px;border-radius:2px;
 }
 
 /* ===== FLEET / Техника ===== */
 #fleet{background:var(--dark)}
 .fleet-grid{
-display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
-gap:24px;
+display:grid;grid-template-columns:repeat(3,1fr);
+gap:20px;
 }
 .fleet-card{
 background:var(--dark2);border-radius:var(--radius);
@@ -192,7 +192,7 @@ transition:all .3s;
 }
 .fleet-card:hover{border-color:var(--orange);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.4)}
 .fleet-card-img{
-position:relative;height:220px;overflow:hidden;background:var(--dark3);
+position:relative;height:180px;overflow:hidden;background:var(--dark3);
 }
 .fleet-card-img img{
 width:100%;height:100%;object-fit:cover;
@@ -200,93 +200,91 @@ transition:transform .4s;
 }
 .fleet-card:hover .fleet-card-img img{transform:scale(1.05)}
 .fleet-card-badge{
-position:absolute;top:12px;left:12px;
-padding:4px 14px;background:var(--orange);color:var(--dark);
-font-family:var(--font-head);font-size:.75rem;font-weight:700;
+position:absolute;top:8px;left:8px;
+padding:3px 10px;background:var(--orange);color:var(--dark);
+font-family:var(--font-head);font-size:.7rem;font-weight:700;
 border-radius:var(--radius);letter-spacing:1px;text-transform:uppercase;
 }
-.fleet-card-body{padding:20px}
+.fleet-card-body{padding:14px}
 .fleet-card-name{
-font-family:var(--font-head);font-size:1.2rem;font-weight:700;
-color:var(--white);margin-bottom:12px;text-transform:uppercase;
+font-family:var(--font-head);font-size:1rem;font-weight:700;
+color:var(--white);margin-bottom:8px;text-transform:uppercase;
 letter-spacing:1px;
 }
-.fleet-card-specs{display:flex;flex-direction:column;gap:8px}
+.fleet-card-specs{display:flex;flex-direction:column;gap:4px}
 .fleet-spec{
-display:flex;align-items:center;gap:10px;
-font-size:.9rem;color:var(--light);
+display:flex;align-items:center;gap:6px;
+font-size:.8rem;color:var(--light);
 }
-.fleet-spec svg{width:18px;height:18px;stroke:var(--orange);flex-shrink:0}
+.fleet-spec svg{width:15px;height:15px;stroke:var(--orange);flex-shrink:0}
 
 /* ===== SERVICES / Услуги ===== */
 #services{background:var(--dark2)}
 .services-grid{
-display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
-gap:20px;
+display:grid;grid-template-columns:repeat(2,1fr);
+gap:12px;
 }
 .service-card{
-padding:28px 24px;background:var(--dark);
+padding:16px 14px;background:var(--dark);
 border-radius:var(--radius);border:1px solid var(--dark3);
 transition:all .3s;text-align:center;
 }
-.service-card:hover{border-color:var(--orange);transform:translateY(-3px)}
+.service-card:hover{border-color:var(--orange);transform:translateY(-2px)}
 .service-icon{
-width:56px;height:56px;border-radius:50%;
+width:42px;height:42px;border-radius:50%;
 background:rgba(232,117,10,.1);border:1px solid rgba(232,117,10,.3);
 display:flex;align-items:center;justify-content:center;
-margin:0 auto 16px;
+margin:0 auto 10px;
 }
-.service-icon svg{width:26px;height:26px;stroke:var(--orange)}
+.service-icon svg{width:20px;height:20px;stroke:var(--orange)}
 .service-card h3{
-font-family:var(--font-head);font-size:1.05rem;font-weight:600;
-color:var(--white);margin-bottom:8px;text-transform:uppercase;
-letter-spacing:1px;
+font-family:var(--font-head);font-size:.85rem;font-weight:600;
+color:var(--white);margin-bottom:4px;text-transform:uppercase;
+letter-spacing:.5px;
 }
-.service-card p{font-size:.9rem;color:var(--gray);line-height:1.5}
+.service-card p{font-size:.78rem;color:var(--gray);line-height:1.4}
 
 /* ===== HOW IT WORKS / Этапы ===== */
 #steps{background:var(--dark)}
 .steps-list{
-display:flex;flex-direction:column;gap:0;
-max-width:700px;margin:0 auto;position:relative;
-}
-.steps-list::before{
-content:'';position:absolute;left:28px;top:0;bottom:0;
-width:2px;background:var(--dark3);
+display:grid;grid-template-columns:repeat(2,1fr);
+gap:16px;max-width:700px;margin:0 auto;
 }
 .step-item{
-display:flex;gap:20px;padding:24px 0;position:relative;
+display:flex;gap:12px;padding:14px;position:relative;
+background:var(--dark2);border-radius:var(--radius);
+border:1px solid var(--dark3);
 }
 .step-num{
-width:56px;height:56px;border-radius:50%;flex-shrink:0;
-background:var(--dark2);border:2px solid var(--orange);
+width:40px;height:40px;border-radius:50%;flex-shrink:0;
+background:var(--dark);border:2px solid var(--orange);
 display:flex;align-items:center;justify-content:center;
-font-family:var(--font-head);font-size:1.3rem;font-weight:700;
-color:var(--orange);z-index:1;
+font-family:var(--font-head);font-size:1.1rem;font-weight:700;
+color:var(--orange);
 }
 .step-content h3{
-font-family:var(--font-head);font-size:1.05rem;font-weight:600;
-color:var(--white);margin-bottom:6px;text-transform:uppercase;
+font-family:var(--font-head);font-size:.85rem;font-weight:600;
+color:var(--white);margin-bottom:3px;text-transform:uppercase;
 }
-.step-content p{font-size:.9rem;color:var(--gray)}
+.step-content p{font-size:.78rem;color:var(--gray);line-height:1.4}
 
 /* ===== ADVANTAGES / Преимущества ===== */
 #advantages{background:var(--dark2)}
 .adv-grid{
-display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
-gap:20px;
+display:grid;grid-template-columns:repeat(3,1fr);
+gap:12px;
 }
 .adv-card{
-padding:24px 20px;background:var(--dark);
+padding:14px 14px;background:var(--dark);
 border-radius:var(--radius);border-left:3px solid var(--orange);
 transition:all .3s;
 }
 .adv-card:hover{transform:translateX(4px)}
 .adv-card h3{
-font-family:var(--font-head);font-size:.95rem;font-weight:600;
-color:var(--white);margin-bottom:6px;text-transform:uppercase;
+font-family:var(--font-head);font-size:.8rem;font-weight:600;
+color:var(--white);margin-bottom:3px;text-transform:uppercase;
 }
-.adv-card p{font-size:.85rem;color:var(--gray)}
+.adv-card p{font-size:.75rem;color:var(--gray);line-height:1.4}
 
 /* ===== COVERAGE / География ===== */
 #coverage{background:var(--dark)}
@@ -295,10 +293,10 @@ display:flex;flex-wrap:wrap;justify-content:center;gap:12px;
 max-width:800px;margin:0 auto;
 }
 .coverage-tag{
-padding:10px 22px;background:var(--dark2);
+padding:7px 16px;background:var(--dark2);
 border:1px solid var(--dark3);border-radius:50px;
-font-family:var(--font-head);font-size:.85rem;font-weight:500;
-color:var(--light);letter-spacing:1px;
+font-family:var(--font-head);font-size:.8rem;font-weight:500;
+color:var(--light);letter-spacing:.5px;
 transition:all .2s;
 }
 .coverage-tag:hover{border-color:var(--orange);color:var(--orange)}
@@ -306,14 +304,14 @@ transition:all .2s;
 /* ===== CTA Section ===== */
 #cta{
 background:linear-gradient(135deg,var(--orange) 0%,#c45e00 100%);
-text-align:center;padding:60px 20px;
+text-align:center;padding:40px 20px;
 }
 #cta h2{
-font-family:var(--font-head);font-size:clamp(1.6rem,4vw,2.4rem);
+font-family:var(--font-head);font-size:clamp(1.4rem,4vw,2.4rem);
 font-weight:700;color:var(--dark);text-transform:uppercase;
-margin-bottom:12px;
+margin-bottom:8px;
 }
-#cta p{color:rgba(20,20,20,.7);margin-bottom:28px;font-size:1.05rem}
+#cta p{color:rgba(20,20,20,.7);margin-bottom:20px;font-size:.95rem}
 .cta-buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
 .cta-btn{
 display:inline-flex;align-items:center;gap:8px;
@@ -375,18 +373,41 @@ background:var(--orange);color:var(--dark);
 
 /* ===== RESPONSIVE ===== */
 @media(max-width:768px){
-  section{padding:60px 16px}
-  .fleet-grid{grid-template-columns:1fr}
-  .services-grid{grid-template-columns:1fr}
-  .adv-grid{grid-template-columns:1fr}
+  section{padding:40px 12px}
+  .fleet-grid{grid-template-columns:repeat(2,1fr);gap:10px}
+  .fleet-card-img{height:130px}
+  .fleet-card-body{padding:10px}
+  .fleet-card-name{font-size:.82rem;margin-bottom:6px}
+  .fleet-spec{font-size:.72rem;gap:4px}
+  .fleet-spec svg{width:12px;height:12px}
+  .fleet-card-badge{padding:2px 8px;font-size:.6rem;top:6px;left:6px}
+  .services-grid{grid-template-columns:repeat(2,1fr);gap:10px}
+  .service-card{padding:14px 10px}
+  .service-card h3{font-size:.78rem}
+  .service-card p{font-size:.72rem}
+  .service-icon{width:36px;height:36px;margin-bottom:8px}
+  .service-icon svg{width:18px;height:18px}
+  .steps-list{grid-template-columns:1fr 1fr;gap:10px}
+  .step-item{padding:10px;gap:8px}
+  .step-num{width:34px;height:34px;font-size:.9rem}
+  .step-content h3{font-size:.78rem}
+  .step-content p{font-size:.72rem}
+  .adv-grid{grid-template-columns:repeat(2,1fr);gap:8px}
+  .adv-card{padding:12px 10px}
+  .adv-card h3{font-size:.75rem}
+  .adv-card p{font-size:.7rem}
+  .coverage-areas{gap:8px}
+  .coverage-tag{padding:6px 12px;font-size:.72rem}
   .hero-stats{gap:24px}
   .hero-stat-num{font-size:2rem}
   .site-name{display:none}
-  .steps-list::before{left:26px}
+  .section-sub{margin-bottom:20px;font-size:.82rem}
 }
 @media(max-width:400px){
   .lang-btn{padding:5px 10px;font-size:.7rem}
   .hero-cta{padding:14px 28px;font-size:1rem}
+  .fleet-card-img{height:100px}
+  .fleet-card-name{font-size:.75rem}
 }
 </style>
 </head>
