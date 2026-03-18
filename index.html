@@ -55,6 +55,56 @@ transition:all .2s;letter-spacing:1px;
 .lang-btn.active{background:var(--orange);color:var(--dark)}
 
 /* Hamburger */
+.header-right{display:flex;align-items:center;gap:8px}
+.theme-toggle{
+width:44px;height:44px;display:flex;align-items:center;justify-content:center;
+background:none;border:none;cursor:pointer;border-radius:50%;
+transition:background .2s;
+}
+.theme-toggle:hover{background:rgba(232,117,10,.12)}
+.theme-toggle svg{width:22px;height:22px;stroke:var(--orange);transition:all .3s}
+.theme-toggle .icon-sun{display:none}
+.theme-toggle .icon-moon{display:block}
+body.light .theme-toggle .icon-sun{display:block}
+body.light .theme-toggle .icon-moon{display:none}
+
+/* ===== LIGHT THEME ===== */
+body.light{
+--dark:#F5F5F5;
+--dark2:#EAEAEA;
+--dark3:#DCDCDC;
+--gray:#666;
+--light:#222;
+--white:#111;
+}
+body.light .header{
+background:rgba(245,245,245,.95);
+border-bottom-color:rgba(232,117,10,.2);
+}
+body.light .hamburger span{background:var(--orange)}
+body.light .hero-bg::after{
+background:linear-gradient(180deg,rgba(245,245,245,.75) 0%,rgba(245,245,245,.55) 50%,rgba(245,245,245,.95) 100%);
+}
+body.light .hero h1{color:var(--white)}
+body.light .hero h1 span,body.light .hero h1 .orange-text{color:var(--orange)}
+body.light .side-menu{background:var(--dark2);border-left-color:var(--orange)}
+body.light .side-menu-header{color:var(--orange)}
+body.light .side-menu nav a{color:var(--light)}
+body.light .side-menu nav a:hover{color:var(--orange);background:rgba(232,117,10,.08)}
+body.light .fleet-card{background:var(--dark2);border-color:var(--dark3)}
+body.light .fleet-card-body{background:var(--dark2)}
+body.light .fleet-card-img{background:var(--dark3)}
+body.light .service-card{background:var(--dark2);border-color:var(--dark3)}
+body.light .step-item{background:var(--dark2);border-color:var(--dark3)}
+body.light .step-num{background:var(--dark);border-color:var(--orange);color:var(--orange)}
+body.light .adv-card{background:var(--dark2)}
+body.light .coverage-tag{background:var(--dark2);border-color:var(--dark3);color:var(--light)}
+body.light .scroll-top{background:var(--dark2);border-color:var(--dark3)}
+body.light .bottom-bar{background:rgba(245,245,245,.95)}
+body.light .bottom-bar a:last-child{color:var(--light)}
+body.light .overlay{background:rgba(0,0,0,.3)}
+body.light .footer{background:var(--dark2);border-top-color:var(--dark3)}
+
 .hamburger{
 width:44px;height:44px;display:flex;flex-direction:column;
 justify-content:center;align-items:center;gap:5px;
@@ -422,9 +472,15 @@ background:var(--orange);color:var(--dark);
       <button class="lang-btn" data-lang="kz" onclick="setLang('kz')">ҚАЗ</button>
     </div>
   </div>
-  <button class="hamburger" id="hamburger" aria-label="Меню">
-    <span></span><span></span><span></span>
-  </button>
+  <div class="header-right">
+    <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+    </button>
+    <button class="hamburger" id="hamburger" aria-label="Меню">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </header>
 
 <!-- OVERLAY -->
@@ -823,6 +879,15 @@ const observer = new IntersectionObserver((entries) => {
 }, {threshold: 0.1, rootMargin: '0px 0px -40px 0px'});
 
 document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+// ===== THEME TOGGLE =====
+const themeToggle = document.getElementById('themeToggle');
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'light') document.body.classList.add('light');
+themeToggle.addEventListener('click', () => {
+  document.body.classList.toggle('light');
+  localStorage.setItem('theme', document.body.classList.contains('light') ? 'light' : 'dark');
+});
 </script>
 
 </body>
